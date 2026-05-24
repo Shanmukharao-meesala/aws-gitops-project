@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Sudoku Puzzle</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f2f5; }
+        h1 { color: #1e3a8a; }
+        .container { max-width: 450px; margin: 30px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 2px; background-color: #334155; padding: 2px; border: 3px solid #1e293b; }
+        .cell { width: 40px; height: 40px; text-align: center; font-size: 18px; font-weight: bold; border: none; background-color: #ffffff; }
+        .cell:focus { background-color: #e2e8f0; outline: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 Enterprise Sudoku Game</h1>
+        <p>Production-Grade Local Deployment Test</p>
+        <div class="grid" id="sudoku-board"></div>
+    </div>
+    <script>
+        // ఒక బేసిక్ సుడోకు బోర్డ్ డెమో (0 అంటే ఖాళీ బాక్స్)
+        const board = [
+            [5, 3, 0, 0, 7, 0, 0, 0, 0],
+            [6, 0, 0, 1, 9, 5, 0, 0, 0],
+            [0, 9, 8, 0, 0, 0, 0, 6, 0],
+            [8, 0, 0, 0, 6, 0, 0, 0, 3],
+            [4, 0, 0, 8, 0, 3, 0, 0, 1],
+            [7, 0, 0, 0, 2, 0, 0, 0, 6],
+            [0, 6, 0, 0, 0, 0, 2, 8, 0],
+            [0, 0, 0, 4, 1, 9, 0, 0, 5],
+            [0, 0, 0, 0, 8, 0, 0, 7, 9]
+        ];
+        const gridElement = document.getElementById('sudoku-board');
+        for (let r = 0; r < 9; r++) {
+            for (let c = 0; c < 9; c++) {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.maxLength = 1;
+                input.className = 'cell';
+                if (board[r][c] !== 0) {
+                    input.value = board[r][c];
+                    input.disabled = true;
+                    input.style.backgroundColor = '#f1f5f9';
+                }
+                gridElement.appendChild(input);
+            }
+        }
+    </script>
+</body>
+</html>
