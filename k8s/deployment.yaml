@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: sudoku-container
-        # FIXED: ఇమేజ్ పేరును 'super-counter' నుండి నీ అసలైన 'sudoku:latest' కి మార్చాం
-        image: docker.io/shanmukharaomeesala/sudoku:latest 
+        # FIXED: నీ అఫీషియల్ డాకర్ హబ్ ఇమేజ్ అడ్రస్
+        image: docker.io/shannudocker02/sudoku-app:latest 
         ports:
         - containerPort: 80
         resources:
