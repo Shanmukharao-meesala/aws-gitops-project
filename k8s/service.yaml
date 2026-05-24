@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sudoku-service
+  namespace: default
+  labels:
+    app: sudoku
+spec:
+  type: LoadBalancer # ఇది AWS లో ఆటోమేటిక్‌గా పబ్లిక్ లోడ్ బాలన్సర్‌ని క్రియేట్ చేస్తుంది
+  selector:
+    app: sudoku # ఇది కరెక్ట్‌గా మన డిప్లాయ్‌మెంట్ ఫైల్‌లోని సుడోకు పాడ్స్‌ని లింక్ చేస్తుంది
+  ports:
+    - protocol: TCP
+      port: 80        # బయటి ప్రపంచం మన గేమ్‌ని యాక్సెస్ చేసే పోర్ట్
+      targetPort: 80  # కంటైనర్ లోపల ఎన్‌గింక్స్ రన్ అవుతున్న పోర్ట్

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sudoku-game
+  namespace: default
+  labels:
+    app: sudoku
+spec:
+  replicas: 2  # మన సుడోకు గేమ్‌ని రెండు సర్వర్లలో సమానంగా రన్ చేస్తుంది (High Availability)
+  selector:
+    matchLabels:
+      app: sudoku
+  template:
+    metadata:
+      labels:
+        app: sudoku
+    spec:
+      containers:
+      - name: sudoku-container
+        image: docker.io/shanmukharaomeesala/super-counter:v1 # నువ్వు క్రియేట్ చేసిన నీ అఫీషియల్ డాకర్ ఇమేజ్!
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "100m"
+          limits:
+            memory: "250Mi"
+            cpu: "250m"
